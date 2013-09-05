@@ -1,0 +1,213 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5CA4BA2D17D92C0F00F7B7BE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA4BA2C17D92C0F00F7B7BE /* main.cpp */; };
+		5CA4BA2F17D92C0F00F7B7BE /* Sickle_basic.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CA4BA2E17D92C0F00F7B7BE /* Sickle_basic.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5CA4BA2617D92C0F00F7B7BE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				5CA4BA2F17D92C0F00F7B7BE /* Sickle_basic.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5CA4BA2817D92C0F00F7B7BE /* Sickle_basic */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Sickle_basic; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CA4BA2C17D92C0F00F7B7BE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		5CA4BA2E17D92C0F00F7B7BE /* Sickle_basic.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Sickle_basic.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5CA4BA2517D92C0F00F7B7BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5CA4BA1D17D92C0F00F7B7BE = {
+			isa = PBXGroup;
+			children = (
+				5CA4BA2B17D92C0F00F7B7BE /* Sickle_basic */,
+				5CA4BA2917D92C0F00F7B7BE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5CA4BA2917D92C0F00F7B7BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5CA4BA2817D92C0F00F7B7BE /* Sickle_basic */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5CA4BA2B17D92C0F00F7B7BE /* Sickle_basic */ = {
+			isa = PBXGroup;
+			children = (
+				5CA4BA2C17D92C0F00F7B7BE /* main.cpp */,
+				5CA4BA2E17D92C0F00F7B7BE /* Sickle_basic.1 */,
+			);
+			path = Sickle_basic;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5CA4BA2717D92C0F00F7B7BE /* Sickle_basic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CA4BA3217D92C0F00F7B7BE /* Build configuration list for PBXNativeTarget "Sickle_basic" */;
+			buildPhases = (
+				5CA4BA2417D92C0F00F7B7BE /* Sources */,
+				5CA4BA2517D92C0F00F7B7BE /* Frameworks */,
+				5CA4BA2617D92C0F00F7B7BE /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sickle_basic;
+			productName = Sickle_basic;
+			productReference = 5CA4BA2817D92C0F00F7B7BE /* Sickle_basic */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5CA4BA1F17D92C0F00F7B7BE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Korf Lab";
+			};
+			buildConfigurationList = 5CA4BA2217D92C0F00F7B7BE /* Build configuration list for PBXProject "Sickle_basic" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5CA4BA1D17D92C0F00F7B7BE;
+			productRefGroup = 5CA4BA2917D92C0F00F7B7BE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5CA4BA2717D92C0F00F7B7BE /* Sickle_basic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5CA4BA2417D92C0F00F7B7BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CA4BA2D17D92C0F00F7B7BE /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5CA4BA3017D92C0F00F7B7BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5CA4BA3117D92C0F00F7B7BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5CA4BA3317D92C0F00F7B7BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5CA4BA3417D92C0F00F7B7BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5CA4BA2217D92C0F00F7B7BE /* Build configuration list for PBXProject "Sickle_basic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CA4BA3017D92C0F00F7B7BE /* Debug */,
+				5CA4BA3117D92C0F00F7B7BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CA4BA3217D92C0F00F7B7BE /* Build configuration list for PBXNativeTarget "Sickle_basic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CA4BA3317D92C0F00F7B7BE /* Debug */,
+				5CA4BA3417D92C0F00F7B7BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5CA4BA1F17D92C0F00F7B7BE /* Project object */;
+}
