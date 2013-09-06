@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5CA4BA2D17D92C0F00F7B7BE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA4BA2C17D92C0F00F7B7BE /* main.cpp */; };
+		5C5D4AC417DA4C6F00D61B67 /* sickle_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C5D4AC217DA4C6F00D61B67 /* sickle_processing.cpp */; };
+		5CA4BA2D17D92C0F00F7B7BE /* sickle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA4BA2C17D92C0F00F7B7BE /* sickle.cpp */; };
 		5CA4BA2F17D92C0F00F7B7BE /* Sickle_basic.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CA4BA2E17D92C0F00F7B7BE /* Sickle_basic.1 */; };
+		5CA4BA3617D92F0500F7B7BE /* libeasel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA4BA3517D92F0500F7B7BE /* libeasel.a */; };
+		5CA4BA3817D92F1000F7B7BE /* libhmmerimpl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA4BA3717D92F1000F7B7BE /* libhmmerimpl.a */; };
+		5CA4BA3A17D92F2000F7B7BE /* libhmmer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA4BA3917D92F1F00F7B7BE /* libhmmer.a */; };
+		5CA4BA3C17D9301200F7B7BE /* libstochhmm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA4BA3B17D9301200F7B7BE /* libstochhmm.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,9 +30,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5C5D4AC217DA4C6F00D61B67 /* sickle_processing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sickle_processing.cpp; sourceTree = "<group>"; };
+		5C5D4AC317DA4C6F00D61B67 /* sickle_processing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sickle_processing.h; sourceTree = "<group>"; };
 		5CA4BA2817D92C0F00F7B7BE /* Sickle_basic */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Sickle_basic; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CA4BA2C17D92C0F00F7B7BE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		5CA4BA2C17D92C0F00F7B7BE /* sickle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sickle.cpp; sourceTree = "<group>"; };
 		5CA4BA2E17D92C0F00F7B7BE /* Sickle_basic.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Sickle_basic.1; sourceTree = "<group>"; };
+		5CA4BA3517D92F0500F7B7BE /* libeasel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libeasel.a; path = "../hmmer-3.0-macosx-intel/easel/libeasel.a"; sourceTree = "<group>"; };
+		5CA4BA3717D92F1000F7B7BE /* libhmmerimpl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libhmmerimpl.a; path = "../hmmer-3.0-macosx-intel/src/impl_sse/libhmmerimpl.a"; sourceTree = "<group>"; };
+		5CA4BA3917D92F1F00F7B7BE /* libhmmer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libhmmer.a; path = "../hmmer-3.0-macosx-intel/src/libhmmer.a"; sourceTree = "<group>"; };
+		5CA4BA3B17D9301200F7B7BE /* libstochhmm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libstochhmm.a; path = ../StochHMM/src/libstochhmm.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +46,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CA4BA3C17D9301200F7B7BE /* libstochhmm.a in Frameworks */,
+				5CA4BA3617D92F0500F7B7BE /* libeasel.a in Frameworks */,
+				5CA4BA3817D92F1000F7B7BE /* libhmmerimpl.a in Frameworks */,
+				5CA4BA3A17D92F2000F7B7BE /* libhmmer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +59,10 @@
 		5CA4BA1D17D92C0F00F7B7BE = {
 			isa = PBXGroup;
 			children = (
+				5CA4BA3B17D9301200F7B7BE /* libstochhmm.a */,
+				5CA4BA3917D92F1F00F7B7BE /* libhmmer.a */,
+				5CA4BA3717D92F1000F7B7BE /* libhmmerimpl.a */,
+				5CA4BA3517D92F0500F7B7BE /* libeasel.a */,
 				5CA4BA2B17D92C0F00F7B7BE /* Sickle_basic */,
 				5CA4BA2917D92C0F00F7B7BE /* Products */,
 			);
@@ -60,7 +79,9 @@
 		5CA4BA2B17D92C0F00F7B7BE /* Sickle_basic */ = {
 			isa = PBXGroup;
 			children = (
-				5CA4BA2C17D92C0F00F7B7BE /* main.cpp */,
+				5CA4BA2C17D92C0F00F7B7BE /* sickle.cpp */,
+				5C5D4AC217DA4C6F00D61B67 /* sickle_processing.cpp */,
+				5C5D4AC317DA4C6F00D61B67 /* sickle_processing.h */,
 				5CA4BA2E17D92C0F00F7B7BE /* Sickle_basic.1 */,
 			);
 			path = Sickle_basic;
@@ -117,7 +138,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CA4BA2D17D92C0F00F7B7BE /* main.cpp in Sources */,
+				5CA4BA2D17D92C0F00F7B7BE /* sickle.cpp in Sources */,
+				5C5D4AC417DA4C6F00D61B67 /* sickle_processing.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +168,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"/Users/rdandekar/Work/KorfProgramProjects/StochHMM/src/**",
+					"/Users/rdandekar/Work/KorfProgramProjects/hmmer-3.0-macosx-intel/**",
+					"/Users/rdandekar/Work/KorfProgramProjects/hmmer-3.0-macosx-intel/src/**",
+					"/Users/rdandekar/Work/KorfProgramProjects/hmmer-3.0-macosx-intel/easel/**",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -168,6 +196,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"/Users/rdandekar/Work/KorfProgramProjects/StochHMM/src/**",
+					"/Users/rdandekar/Work/KorfProgramProjects/hmmer-3.0-macosx-intel/**",
+					"/Users/rdandekar/Work/KorfProgramProjects/hmmer-3.0-macosx-intel/src/**",
+					"/Users/rdandekar/Work/KorfProgramProjects/hmmer-3.0-macosx-intel/easel/**",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 			};
@@ -176,6 +210,13 @@
 		5CA4BA3317D92C0F00F7B7BE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../hmmer-3.0-macosx-intel/easel\"",
+					"\"$(SRCROOT)/../hmmer-3.0-macosx-intel/src/impl_sse\"",
+					"\"$(SRCROOT)/../hmmer-3.0-macosx-intel/src\"",
+					"\"$(SRCROOT)/../StochHMM/src\"/**",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -183,6 +224,13 @@
 		5CA4BA3417D92C0F00F7B7BE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../hmmer-3.0-macosx-intel/easel\"",
+					"\"$(SRCROOT)/../hmmer-3.0-macosx-intel/src/impl_sse\"",
+					"\"$(SRCROOT)/../hmmer-3.0-macosx-intel/src\"",
+					"\"$(SRCROOT)/../StochHMM/src\"/**",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -206,6 +254,7 @@
 				5CA4BA3417D92C0F00F7B7BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
