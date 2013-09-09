@@ -14,9 +14,10 @@ std::vector<std::string> alphabet;
 ESL_ALPHABET *abc    = NULL;    /* digitial alphabet */
 P7_HMMFILE   *hfp    = NULL;    /* hmm file */
 P7_HMM       *hmm    = NULL;    /* hmm */
-char         *hmmfile;          /* HMMER Model File */
-double       old_score;         /* HMMER score of unparsed sequence */
+char         *profile_fh;       /* HMMER Model File */
+double       unparsed_score;
 double       score;             /* HMMER score of edited(HMM) sequence */
+static std::string unparsed_protein_seq;
 static std::string protein_seq;
 
 
@@ -26,14 +27,15 @@ static std::string protein_seq;
 /*-----------------------------*/
 double traceback_model_eval (const std::string *nucleotide_seq, size_t current_position, const std::string *edited_seq, size_t traceback){
     SEQanalysis compute;
-    std::cout << *edited_seq << std::endl;
+    //std::cout << *edited_seq << std::endl;
     
     // HMMER score of HMM parsed seq 'edited_seq'
     protein_seq = compute.translate(edited_seq, aa_dictionary);
-    std::cout << protein_seq << std::endl;
+    unparsed_protein_seq = compute.translate(nucleotide_seq, aa_dictionary);
     
-//    score = compute.hmmer_score(abc, hmm, protein_seq);
-//    std::cout << "Parsed HMMER score:\t" << score << std::endl;
+    score = compute.hmmer_score(abc, hmm, protein_seq);
+    unparsed_score = compute.hmmer_score(abc,hmm, unparsed_protein_seq);
+    std::cout << "Unparsed HMMER score:  " << unparsed_score << "\tParsed HMMER score: " << score << std::endl;
     
     // Adjust HMMER score by a scaling factor then return Sickle score
     
@@ -54,9 +56,18 @@ int main(int argc, char* const argv[]){
         exit(2);
     }
     std::string trans_tbl      (argv[1]);    /* Translation Table File */
-    std::string profile_fh =    argv[2];     /* Profile HMM file */
+    profile_fh =    argv[2];     /* Profile HMM file */
     std::string hmm_fh =        argv[3];     /* HMM files for StochHMM */
     std::string fasta_fh =      argv[4];     /* Sequence input (FASTA file) */
+    
+    
+    /*  SETUP HMMER PROFILE    */
+    if (p7_hmmfile_Open(profile_fh, NULL, &hfp) != eslOK)
+		p7_Fail("Failed to open HMM file %s", profile_fh);
+	
+	if (p7_hmmfile_Read(hfp, &abc, &hmm)     != eslOK)
+		p7_Fail("Failed to read HMM");
+	p7_hmmfile_Close(hfp);
     
     
     /*  CREATE CODON DICTIONARY */
