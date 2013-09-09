@@ -70,8 +70,8 @@ public:
     };
     
     SEQanalysis(){};
-    SEQanalysis(std::string& trans_tbl, std::map<std::string, SEQanalysis::AMINO_ACIDS>& aa_dictionary, const P7_HMM *hmm, const ESL_ALPHABET *abc, std::string *my_seq, std::string& protein_seq, std::string& codon, const std::string *edited_seq, const size_t& current_position, const size_t& traceback): \
-    trans_tb_fh(trans_tbl), translation_table(aa_dictionary), hmm_file(hmm), digital_alphabet(abc),fullseq_pointer(my_seq), protein_sequence(protein_seq), codon_seq(codon), parsed_exon_sequence(edited_seq), sequence_position(current_position), traceback_length(traceback){};
+    SEQanalysis(std::string& trans_tbl, std::map<std::string, SEQanalysis::AMINO_ACIDS>& aa_dictionary, const P7_HMM *hmm, const ESL_ALPHABET *abc, std::string& protein_seq, std::string& codon, const std::string): \
+    trans_tb_fh(trans_tbl), translation_table(aa_dictionary), hmm_file(hmm), digital_alphabet(abc), protein_sequence(protein_seq){};
     
     
     /*----------------------------------------------*/
@@ -88,11 +88,6 @@ public:
 private:
     std::map<std::string, SEQanalysis::AMINO_ACIDS> translation_table;
     std::string trans_tb_fh;
-    std::string *fullseq_pointer;               //Pointer to full sequence as string
-    size_t sequence_position;                   //current position in FASTA seq
-    const std::string *parsed_exon_sequence;    //Parsed sequence using HMM
-    size_t traceback_length;
-    std::string codon_seq;                      //Codon seq
     std::string protein_sequence;               //Translated Protein Sequence
     const P7_HMM *hmm_file;                     //Pointer to HMM file
     const ESL_ALPHABET *digital_alphabet;       //Pointer to digital alphabet

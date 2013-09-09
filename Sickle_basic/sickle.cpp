@@ -10,34 +10,22 @@
 
 /*  GLOBAL variables    */
 std::map<std::string, SEQanalysis::AMINO_ACIDS> aa_dictionary;
-std::vector<std::string> alphabet;
-ESL_ALPHABET *abc    = NULL;    /* digitial alphabet */
-P7_HMMFILE   *hfp    = NULL;    /* hmm file */
-P7_HMM       *hmm    = NULL;    /* hmm */
-char         *profile_fh;       /* HMMER Model File */
-double       unparsed_score;
-double       score;             /* HMMER score of edited(HMM) sequence */
-static std::string unparsed_protein_seq;
-static std::string protein_seq;
-
+         /* stocchmm alphabet */
+static ESL_ALPHABET *ALPHABET   = NULL;    /* hmmer digitial alphabet */
+static P7_HMM       *PROFILE    = NULL;    /* hmm */
 
 
 /*-----------------------------*/
 /*  STOCHHMM LINKING FUNCTION  */
 /*-----------------------------*/
-double traceback_model_eval (const std::string *nucleotide_seq, size_t current_position, const std::string *edited_seq, size_t traceback){
+double traceback_model_eval (const std::string *genome, size_t pos, const std::string *mRNA, size_t traceback) {
     SEQanalysis compute;
-    //std::cout << *edited_seq << std::endl;
     
-    // HMMER score of HMM parsed seq 'edited_seq'
-    protein_seq = compute.translate(edited_seq, aa_dictionary);
-    unparsed_protein_seq = compute.translate(nucleotide_seq, aa_dictionary);
+    /*  HMMER score of HMM parsed seq  */
+    std::string protein_seq = compute.translate(mRNA, aa_dictionary);
+    double score            = compute.hmmer_score(ALPHABET, PROFILE, protein_seq);
     
-    score = compute.hmmer_score(abc, hmm, protein_seq);
-    unparsed_score = compute.hmmer_score(abc,hmm, unparsed_protein_seq);
-    std::cout << "Unparsed HMMER score:  " << unparsed_score << "\tParsed HMMER score: " << score << std::endl;
-    
-    // Adjust HMMER score by a scaling factor then return Sickle score
+    std::cout << "HMMER score:  " << score << std::endl;
     
     return 0.01;
 }
@@ -55,29 +43,27 @@ int main(int argc, char* const argv[]){
         std::cout << usage << std::endl;
         exit(2);
     }
-    std::string trans_tbl      (argv[1]);    /* Translation Table File */
-    profile_fh =    argv[2];     /* Profile HMM file */
-    std::string hmm_fh =        argv[3];     /* HMM files for StochHMM */
-    std::string fasta_fh =      argv[4];     /* Sequence input (FASTA file) */
+    std::string trans_tbl     = argv[1];        /* Translation Table File */
+    char *profile_file        = argv[2];        /* Hmmer (profile) HMM file */
+    std::string stochhmm_file = argv[3];        /* StochHMM HMM file*/
+    std::string fasta_file    = argv[4];        /* Sequence input (FASTA file) */
+    P7_HMMFILE  *hfp;
     
     
     /*  SETUP HMMER PROFILE    */
-    if (p7_hmmfile_Open(profile_fh, NULL, &hfp) != eslOK)
-		p7_Fail("Failed to open HMM file %s", profile_fh);
-	
-	if (p7_hmmfile_Read(hfp, &abc, &hmm)     != eslOK)
-		p7_Fail("Failed to read HMM");
+    if (p7_hmmfile_Open(profile_file, NULL, &hfp) != eslOK) p7_Fail("Failed to open HMM file %s", profile_file);
+	if (p7_hmmfile_Read(hfp, &ALPHABET, &PROFILE) != eslOK) p7_Fail("Failed to read HMM");
 	p7_hmmfile_Close(hfp);
     
     
     /*  CREATE CODON DICTIONARY */
+    std::vector<std::string> alphabet;
     alphabet.push_back("A");
     alphabet.push_back("C");
     alphabet.push_back("G");
     alphabet.push_back("T");
-    StochHMM::track tr(alphabet);
+    StochHMM::track tr = alphabet;
     aa_dictionary = SEQanalysis::parse_translation_table(trans_tbl);
-    
     
     /*  VITERBI TRACEBACK */
     StochHMM::StateFuncs myTransitions;
@@ -86,8 +72,8 @@ int main(int argc, char* const argv[]){
     std::vector<StochHMM::gff_feature> seq_coord;
     
     myTransitions.assignTransitionFunction("HMMER", *traceback_model_eval);
-    myModel.import(hmm_fh, &myTransitions);
-    jobs.loadSeqs(myModel, fasta_fh);
+    myModel.import(stochhmm_file, &myTransitions);
+    jobs.loadSeqs(myModel, fasta_file);
     StochHMM::seqJob *job = jobs.getJob();
     
     while (job != NULL) {
@@ -111,8 +97,8 @@ int main(int argc, char* const argv[]){
     
     
     /* GLOBAL CLEANUP */
-	p7_hmm_Destroy(hmm);
-	esl_alphabet_Destroy(abc);
+	p7_hmm_Destroy(PROFILE);
+	esl_alphabet_Destroy(ALPHABET);
 
     return 0;
 }
