@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C53976A17DE2A9000948053 /* libstochhmm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA4BA3B17D9301200F7B7BE /* libstochhmm.a */; };
 		5C5D4AC417DA4C6F00D61B67 /* sickle_processing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C5D4AC217DA4C6F00D61B67 /* sickle_processing.cpp */; };
 		5CA4BA2D17D92C0F00F7B7BE /* sickle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5CA4BA2C17D92C0F00F7B7BE /* sickle.cpp */; };
 		5CA4BA2F17D92C0F00F7B7BE /* Sickle_basic.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CA4BA2E17D92C0F00F7B7BE /* Sickle_basic.1 */; };
 		5CA4BA3617D92F0500F7B7BE /* libeasel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA4BA3517D92F0500F7B7BE /* libeasel.a */; };
 		5CA4BA3817D92F1000F7B7BE /* libhmmerimpl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA4BA3717D92F1000F7B7BE /* libhmmerimpl.a */; };
 		5CA4BA3A17D92F2000F7B7BE /* libhmmer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA4BA3917D92F1F00F7B7BE /* libhmmer.a */; };
-		5CA4BA3C17D9301200F7B7BE /* libstochhmm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA4BA3B17D9301200F7B7BE /* libstochhmm.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CA4BA3C17D9301200F7B7BE /* libstochhmm.a in Frameworks */,
+				5C53976A17DE2A9000948053 /* libstochhmm.a in Frameworks */,
 				5CA4BA3617D92F0500F7B7BE /* libeasel.a in Frameworks */,
 				5CA4BA3817D92F1000F7B7BE /* libhmmerimpl.a in Frameworks */,
 				5CA4BA3A17D92F2000F7B7BE /* libhmmer.a in Frameworks */,
@@ -216,6 +216,7 @@
 					"\"$(SRCROOT)/../hmmer-3.0-macosx-intel/src/impl_sse\"",
 					"\"$(SRCROOT)/../hmmer-3.0-macosx-intel/src\"",
 					"\"$(SRCROOT)/../StochHMM/src\"/**",
+					"\"$(SRCROOT)/../StochHMM/src\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -230,6 +231,7 @@
 					"\"$(SRCROOT)/../hmmer-3.0-macosx-intel/src/impl_sse\"",
 					"\"$(SRCROOT)/../hmmer-3.0-macosx-intel/src\"",
 					"\"$(SRCROOT)/../StochHMM/src\"/**",
+					"\"$(SRCROOT)/../StochHMM/src\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

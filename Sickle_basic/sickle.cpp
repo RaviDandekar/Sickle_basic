@@ -14,10 +14,10 @@ std::vector<std::string> alphabet;
 ESL_ALPHABET *abc    = NULL;    /* digitial alphabet */
 P7_HMMFILE   *hfp    = NULL;    /* hmm file */
 P7_HMM       *hmm    = NULL;    /* hmm */
-char         *hmmfile;          /* Hmmer Model File */
-double       score;             /* Hmmer Score */
-std::string protein_seq;
-std::string * nucleotide_seq;
+char         *hmmfile;          /* HMMER Model File */
+double       old_score;         /* HMMER score of unparsed sequence */
+double       score;             /* HMMER score of edited(HMM) sequence */
+static std::string protein_seq;
 
 
 
@@ -25,13 +25,15 @@ std::string * nucleotide_seq;
 /*  STOCHHMM LINKING FUNCTION  */
 /*-----------------------------*/
 double traceback_model_eval (const std::string *nucleotide_seq, size_t current_position, const std::string *edited_seq, size_t traceback){
-    // Undigitize Parsed Seq
+    SEQanalysis compute;
     std::cout << *edited_seq << std::endl;
     
-    // Get HMMER score
-//    SEQanalysis translation;
-//    protein_seq = translation.translate(nucleotide_seq, aa_dictionary);
-//    score = SEQanalysis::hmmer_score(abc, hmm, protein_seq);
+    // HMMER score of HMM parsed seq 'edited_seq'
+    protein_seq = compute.translate(edited_seq, aa_dictionary);
+    std::cout << protein_seq << std::endl;
+    
+//    score = compute.hmmer_score(abc, hmm, protein_seq);
+//    std::cout << "Parsed HMMER score:\t" << score << std::endl;
     
     // Adjust HMMER score by a scaling factor then return Sickle score
     
